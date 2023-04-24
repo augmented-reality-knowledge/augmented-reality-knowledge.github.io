@@ -51,11 +51,11 @@
           <h1 class="title is-1 publication-title">Augmented Reality with Knowledge Interaction (ARK)</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Author 1</a><sup>1</sup>,</span>
+              <a href="https://keunhong.com">Abhinav Gupta</a><sup><b>*</b>1</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Author 2</a><sup>1</sup>,</span>
+              <a href="https://utkarshsinha.com">Qiuyuan Huang</a><sup><b>*</b>1</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Author 3</a><sup>1</sup>,
+              <a href="https://jonbarron.info">Jae Sung Park</a><sup><b>*</b>1,2</sup>,
             </span>
             
             <span class="author-block">
@@ -64,8 +64,11 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Microsoft Research,</span>
-            <span class="author-block"><sup>2</sup>University of Washington</span>
+            <span class="author-block"><sup>*</sup>Equal Contribution, </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Microsoft Research,</span>
+            <span class="author-block"><sup>2</sup> University of Washington</span>
           </div>
 
           <div class="column has-text-centered">
@@ -95,7 +98,7 @@
                   </a>
               </span>
               <!-- Dataset Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -103,6 +106,7 @@
                   </span>
                   <span>Data</span>
                   </a>
+              </span> -->
             </div>
 
           </div>
@@ -116,10 +120,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
         <div class="column">
-          <img id="teaser" width="80%" src="./static/images/MSgame1.png"> 
+          <img id="teaser" width="100%" src="./static/images/MSgame1.png"> 
         </div>
         <div class="column">
-          <img id="teaser" width="80%" src="./static/images/MSgame2.png"> 
+          <img id="teaser" width="100%" src="./static/images/MSgame2.png"> 
         </div>
 
       <h2 class="subtitle has-text-centered">
@@ -156,23 +160,35 @@
     <!-- Paper Model. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">ARK Design</h2>      
-        <img id="model" width="100%" src="static/images/model.png">
-        <p class="has-text-centered">
-          Flowchart of ARK: Use DALL-E Prior and ChatGPT Code Generation for 3D Scene Generation.
-        </p> 
+        <h2 class="title is-3">ARK Design</h2>     
         <div class="content has-text-justified">
           <p>
           </p>
+          <h4>Training ARK</h4>
           <ul>
             <li>
-              Using DALLE, a 2D image is generated given the text prompt.
+              Pre-train agent to retrieve relevant knowledge <b><i>K</i></b> for the given image-text pair. 
             </li>
             <li>
-              The agent retrieves relevant knowledge for given image-text.
+              Use VQA dataset to further train to provide question and answer (QA) for the image and text using retrieved knowledge <b><i>K</i></b>.
+            </li>
+            <li>
+              QA pairs are provided to <b>large language models (GPT3.5)</b> that generates new prompt for <b>DALL-E</b>.
+            </li>
+            <li>
+              Apply <b>Reinforcement Learning</b> with similarity between the DALL-E generated image and original image as reward to train the agent to learn to ask relevant question and answer.
+            </li>
+            <li>
+              At test time, use generated image by DALL-E to provide new prompt for <b>3D scene generation model (ChatGPT / GPT-4)</b>, whose <b>code</b> will be run in 3D engine. 
             </li>
           </ul>
         </div>  
+        <img id="model" width="100%" src="static/images/model.png">
+        <p class="has-text-centered">
+          Flowchart of ARK: Reinforcement Learning that connects DALL-E Prior and ChatGPT Code Generation for 3D Scene Generation.
+        </p>
+         
+        
       </div>
     </div>
     <br>
@@ -182,7 +198,7 @@
     <!-- Paper Model 2. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-max-desktop">
-        <h2 class="title is-3">Cross-Modality Scene Generation</h2>
+        <h2 class="title is-3">From 2D to 3D: Cross-Modality Scene Generation</h2>
           <div class="column">
             <img width="100%" src="./static/images/3d_ex1.png"> 
           </div>
@@ -191,7 +207,7 @@
             <img width="100%" src="./static/images/3d_ex2.png"> 
           </div>
         <p class="has-text-centered">
-          Example of ArK Execution Flow. 
+          ARK combines <b>entity knowledge from the web</b> and <b>knowledge of </b> 2D world to enhance <b>3D scene generation</b>.
         </p>        
         </div>
     </div>
@@ -201,8 +217,27 @@
 
     <!-- Results -->
   <div class="section">
-    <div class="columns is-centered has-text-centered">
+    <div class="is-centered has-text-centered">
       <h2 class="title is-3">Results</h2>
+        <div class="column is-max-desktop">
+          <img width="70%" src="./static/images/results.png"> 
+        </div>
+        <h4 class=".display-3">
+          <b>Humans prefer scenes generated by our ARK module than vanilla OpenAI models.</b>
+        </h4>  
+    </div>
+  </div>
+  <div class="section">
+    <div class="is-centerd has-text-centered">
+      <h2 class="title is-3">Qualitative Results</h2>
+      <div class="is-centered has-text-centered">
+          <div class="column is-max-desktop">
+            <img width="70%" src="./static/images/gpt4gamea.png"> 
+          </div>
+          <div class="column is-max-desktop">
+            <img width="70%" src="./static/images/gpt4gameb.png"> 
+          </div>
+      </div>
     </div>
   </div> 
     <!-- Results -->
@@ -212,12 +247,13 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      <!-- @article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021}, -->
-<!-- } -->
+  @article{,
+  author    = {},
+  title     = {ArK: Augmented Reality with Knowledge Interactive Emergent Ability},
+  journal   = {arXiv preprint },
+  year      = {2023},
+  }
+   
 </code></pre>
   </div>
 </section>
