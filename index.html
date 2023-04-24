@@ -6,10 +6,10 @@
         content="Augmented Reality Knowledge">
   <meta name="keywords" content="AR, VR, Code, 3D Scene, ChatGPT">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Augmented Reality Knowledge (ARK)</title>
+  <title>Augmented Reality with Knowledge Interaction (ARK)</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -20,7 +20,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-PYVRSFMDRL');
-  </script>
+  </script> -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -48,7 +48,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Augmented Reality Knowledge</h1>
+          <h1 class="title is-1 publication-title">Augmented Reality with Knowledge Interaction (ARK)</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://keunhong.com">Author 1</a><sup>1</sup>,</span>
@@ -58,9 +58,6 @@
               <a href="https://jonbarron.info">Author 3</a><sup>1</sup>,
             </span>
             
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Yejin Choi</a><sup>2</sup>,
-            </span>
             <span class="author-block">
               <a href="http://www.ricardomartinbrualla.com">Jianfeng Gao</a><sup>1</sup>
             </span>
@@ -76,7 +73,8 @@
               <!-- PDF Link. -->
               
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948" 
+                <!-- TO EDIT -->
+                <a href="https://arxiv.org/abs/2011.12948"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -87,12 +85,13 @@
             
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <!-- TO EDIT -->
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (coming soon)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -116,10 +115,15 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" width="100%" src="./static/images/teaser.jpg"> 
+        <div class="column">
+          <img id="teaser" width="80%" src="./static/images/MSgame1.png"> 
+        </div>
+        <div class="column">
+          <img id="teaser" width="80%" src="./static/images/MSgame2.png"> 
+        </div>
+
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">ARK</span>: trained agent that uses knowledge from the real world
-        to generate interactable scene in a virtual 3d envrionment.
+        <span class="dnerf">ARK</span>: Adapt real-world knowledge to generate interactable scene in a virtual 3d envrionment.
       </h2>
     </div>
   </div>
@@ -133,12 +137,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Sample
-          </p>
-          <p>
-            Abstract
-          </p>
-          
+            Despite the growing adoption of mixed reality and interactive AI agents, it remains challenging for these systems to generate high-quality 2D/3D scenes in unseen environments. 
+            The common practice requires deploying an AI agent to collect large amounts of data for model training for every new task. This process is costly, or even impossible, for many domains. 
+            In this study, we develop an <b>interactive agent</b> that learns to transfer knowledge-memory from <b>general foundation models (e.g., GPT4, DALL-E)</b> to novel domains or scenarios 
+            for scene understanding and generation in the physical or virtual world. The heart of our agent is an emerging mechanism, 
+            <b>Augmented-Reality with Knowledge Inference Interaction (ARK)</b>, which leverages knowledge-memory to generate scenes in unseen physical world and virtual reality environments.
+            We show that the ARK agent, combined with large foundation models, significantly improves the quality of generated 2D/3D scenes, compared to baselines, demonstrating the potential benefit of incorporating ARK in generaive AI for applications such as metaverse and gaming simulation.
+          </p>      
         </div>
       </div>
     </div>
@@ -151,18 +156,23 @@
     <!-- Paper Model. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">ARK Design</h2>
+        <h2 class="title is-3">ARK Design</h2>      
+        <img id="model" width="100%" src="static/images/model.png">
+        <p class="has-text-centered">
+          Flowchart of ARK: Use DALL-E Prior and ChatGPT Code Generation for 3D Scene Generation.
+        </p> 
         <div class="content has-text-justified">
           <p>
           </p>
           <ul>
-            <li>Random Text.</li>
+            <li>
+              Using DALLE, a 2D image is generated given the text prompt.
+            </li>
+            <li>
+              The agent retrieves relevant knowledge for given image-text.
+            </li>
           </ul>
-        </div>        
-        <img id="model" width="100%" src="images/flowchart.gif">
-        <p class="has-text-centered">
-          Flowchart of ARK to enable 3D Scene Generation with ChatGPT.
-        </p> 
+        </div>  
       </div>
     </div>
     <br>
@@ -171,27 +181,31 @@
     
     <!-- Paper Model 2. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">Full Execution Flow</h2>
-        <div class="content has-text-justified">
-          <p>
-            We provide an examples of MM-REACT’s full execution flow blow. More examples can be found in our paper.
-          </p>
-          <ul>
-            <li>The executions, highlighted by bold text, can be either a ChatGPT call (<em>e.g.</em>, “<span style="color:#949494;"><b>ChatGPT:</b></span>”) or running a selected vision expert (em>e.g.</em>, “<span style="color:#949494;"><b>Image Captioning</b></span>”).</li>
-            <li>ChatGPT executions can be used to generate <SPAN STYLE="background-color: #FFE699">thought</SPAN> (reasoning) and <SPAN STYLE="background-color: #DEEBF7">action</SPAN> texts that allocate vision experts <img src="./static/images/icon_reason.png" alt="MM-ReAct" width="20"/>, or produce the final response to users <img src="./static/images/icon.png" alt="MM-ReAct" width="20"/>.</li>
-            <li>Each ChatGPT execution takes the preceding text as input and generates the text leading up to the next execution (<em>e.g.</em>, “<span style="color:#949494;">This is an image. Assistant, what objects . . . image? &lt;ImagePath&gt;</span>” for the first execution). </li>
-            <li>Texts in <span style="color:#949494;"><b>gray</b></span> represent MM-REACT’s <SPAN STYLE="background-color: #FFE699">thoughts</SPAN> or vision experts’ <SPAN STYLE="background-color: #DEEBF7">actions</SPAN> and outputs (<SPAN STYLE="background-color: #E2F0D9">observations</SPAN>), which are invisible to users. This multimodal reasoning and action process occurs behind the scene to gather the necessary information for generating final responses to users, which are shown in <b>black</b>.</li>
-          </ul>
-        </div>        
-        <img id="model" width="60%" src="images/figure_3.gif">
+      <div class="column is-max-desktop">
+        <h2 class="title is-3">Cross-Modality Scene Generation</h2>
+          <div class="column">
+            <img width="100%" src="./static/images/3d_ex1.png"> 
+          </div>
+          
+          <div class="column">
+            <img width="100%" src="./static/images/3d_ex2.png"> 
+          </div>
         <p class="has-text-centered">
-          An example of MM-REACT’s full execution flow. 
+          Example of ArK Execution Flow. 
         </p>        
         </div>
     </div>
     </div>
+  </section>
     <!-- Paper Model 2. -->
+
+    <!-- Results -->
+  <div class="section">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Results</h2>
+    </div>
+  </div> 
+    <!-- Results -->
 </section>
 
 <section class="section" id="BibTeX">
@@ -220,9 +234,8 @@
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            Website was generated using the <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and 
-              <a href="https://multimodal-react.github.io/">MM-React</a> website.
+            Website was adapted from  <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
           </p>
         </div>
       </div>
