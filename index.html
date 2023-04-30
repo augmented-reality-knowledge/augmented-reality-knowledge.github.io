@@ -187,25 +187,25 @@
           <h4>Training ARK</h4>
           <ul>
             <li>
-              Pre-train agent to retrieve relevant knowledge <b><i>K</i></b> for the given image-text pair. 
+              Pre-train infinite memory agent to retrieve relevant knowledge <b><i>K</i></b> for the given image-text pair. 
             </li>
             <li>
-              Use VQA dataset to further train to provide question and answer (QA) for the image and text using retrieved knowledge <b><i>K</i></b>.
+              Use VQA/WIT/COCO dataset to further train to provide question and answer (QA) for the image and text using retrieved knowledge <b><i>K</i></b>.
             </li>
             <li>
               QA pairs are provided to <b>large language models (GPT3.5)</b> that generates new prompt for <b>DALL-E</b>.
             </li>
             <li>
-              Apply <b>Reinforcement Learning</b> with similarity between the DALL-E generated image and original image as reward to train the agent to learn to ask relevant question and answer.
+              Apply <b>Reinforcement Learning</b> with similarity between the DALL-E generated image feedback and original image as reward to train the agent to learn to ask relevant question and answer.
             </li>
             <li>
-              At test time, use generated image by DALL-E to provide new prompt for <b>3D scene generation model (ChatGPT / GPT-4)</b>, whose <b>code</b> will be run in 3D engine. 
+              At test time, use generated 2D image by DALL-E to provide sumilation for <b>3D/gaming scene generation model (ChatGPT / GPT-4)</b>, whose <b>spatial arrangement and program synthesis</b> will be run in 3D engine. 
             </li>
           </ul>
         </div>  
         <img id="model" width="100%" src="static/images/model.png">
         <p class="has-text-centered">
-          Flowchart of ARK: Reinforcement Learning that connects DALL-E Prior and ChatGPT Code Generation for 3D Scene Generation.
+          Flowchart of ARK: Reinforcement Learning that Connects DALL-E Prior and GPT4/ChatGPT Program Synthesis Generation for 3D Scene Generation.
         </p>
          
         
